@@ -2,32 +2,39 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
 
-    function drawChart() {
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['animals', 'Percentage'],
+          ["fish", 50],
+          ["rabbit", 37.5],
+          ["chicken", 12.5],
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'animal');
-      data.addColumn('number', 'Populartiy');
-      data.addRows([
-        ['rabbit', 37.5],
-        ['fish', 50],
-        ['chicken',12.5],
-         // Below limit.
-      ]);
+        ]);
 
-      var options = {
-        title: 'animals',
+        var options = {
+          title: 'animals',
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'animals',
+                   subtitle: 'popularity by percentage' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Percentage'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
 
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
       };
-
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    }
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
