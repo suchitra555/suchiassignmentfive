@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<body>
+
+		<center>
+		<header> <h1> Records </h1> </header>
+            <header> <h1> This page lists the quake random records </h1></header>
+		<br> <br>
+		<h1> </h1>
+		<br>
+		<label><h2>Enter the number of queries and :</h2></label><br>
+        <form action="{{ url_for('options') }}" method="POST">
+        <label>Enter number:</label>
+        <input type="text" name="num"/>
+{#        <label>depth1:</label>#}
+{#        <input type="text" name="depth1"/>#}
+{#        <label>depth2:</label>#}
+{#        <input type="text" name="depth2"/>#}
+{#        <select name="opt">#}
+{#            <option value="im">in memory</option>#}
+{#            <option value="n">none</option>#}
+{#            <option value="all">all</option>#}
+            <input type="submit" value="submit"/>#}
+        </select>
+        <br>
+    </form>
+        </center>
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+          var dataset = {{ p|tojson }}
+        {#var data = google.visualization.arrayToDataTable([#}
+        {#  ['Mag', 'Query Count'],#}
+        {#  [ 8,      12],#}
+        {#  [ 4,      5.5],#}
+        {#  [ 11,     14],#}
+        {#  [ 4,      5],#}
+        {#  [ 3,      3.5],#}
+        {#  [ 6.5,    7]#}
+        {#]);#}
+        var data = google.visualization.arrayToDataTable(dataset);
+
+        var options = {
+          title: 'Mag vs. Query Count comparison',
+          hAxis: {title: 'Mag', minValue: 0},
+          vAxis: {title: 'Query Count', minValue: 0},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+  <center>
+    <h1>1001666051</h1>
+    <h1>Suchitra</h1>
+    <h1>Assignment 4</h1>
+    <p>Execution Time : {{ etime }}</p>
+    <p>Points : {{ p }}</p>
+    <p>Scatter Plot</p>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </center>
+  </body>
+</html>
