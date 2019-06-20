@@ -2,27 +2,24 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
-
       function drawChart() {
-
         var data = google.visualization.arrayToDataTable([
-          ['rabbit', '22'],
-          ['fish',     10],
-          ['rabbit',  22],
-          ['rabbit',  22],
-          ['chicken', 2],
-            ['rabbit', 22],
-
+          ['Language', 'Speakers (in millions)'],
+          ['rabbit',  6.85],
+          ['fish',  1.66],
+          ['chicken', 1.66]
         ]);
 
-        var options = {
-          title: 'My Daily Activities'
-        };
+      var options = {
+        legend: 'none',
+        pieSliceText: 'label',
+        title: 'animals',
+        pieStartAngle: 100,
+      };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
         chart.draw(data, options);
       }
     </script>
