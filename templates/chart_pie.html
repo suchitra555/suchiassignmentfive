@@ -2,29 +2,32 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Language', 'Speakers (in millions)'],
-          ['rabbit',  6.85],
-          ['fish',  1.66],
-          ['chicken', 1.66]
-        ]);
+     google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'animal');
+      data.addColumn('number', 'Populartiy');
+      data.addRows([
+        ['rabbit', 37.5],
+        ['fish', 50],
+        ['chicken',12.5],
+         // Below limit.
+      ]);
 
       var options = {
-        legend: 'none',
-        pieSliceText: 'label',
         title: 'animals',
-        pieStartAngle: 100,
+
       };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-      }
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
     </script>
   </head>
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
